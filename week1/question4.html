@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result_max"></p>
+    <p id="result_min"></p>
+    <p id="result_sum"></p>
+    <p id="result_avg"></p>
+    <script>
+        let arr = new Array();
+        arr = prompt('세 숫자를 입력하시오: (띄어쓰기)').split(" ");
+        
+        let sum = 0;
+        for(let i = 0; i < arr.length; i++){
+            arr[i] = Number(arr[i]);
+            sum += arr[i];
+        }
+        document.getElementById('result_max').innerHTML += '최대값 : ' + Math.max.apply(null, arr);
+        document.getElementById('result_min').innerHTML += '최소값 : ' + Math.min.apply(null, arr);
+        document.getElementById('result_sum').innerHTML += '합계 : ' + sum;
+        document.getElementById('result_avg').innerHTML += '평균 : ' + sum/arr.length;
+    </script>
+</body>
+</html>

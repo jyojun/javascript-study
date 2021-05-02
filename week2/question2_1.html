@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>소수 판별하기</p>
+    <input type='text' id="getNumber" placeholder="input number"/>
+    <p></p>
+    <button type="button" onclick="isPrimeNumber()">
+        Is it prime number?
+    </button>
+    <p id="isPrime"></p>
+    <script>
+
+        const isPrimeNumber = () => { // 에라토스 테네스 체를 이용한 소수 판별
+            let number = document.getElementById("getNumber").value;
+            
+
+            if(number < 3){
+                if(number === 1){
+                document.getElementById("isPrime").innerHTML = number + " is not Prime Number.";
+                }
+
+                if(number === 2){
+                    document.getElementById("isPrime").innerHTML = number + " is Prime Number.";
+                }
+            }
+            else{
+                for(let i=2; i<Math.sqrt(number)+1; i++){
+                    if(number % i == 0){
+                        document.getElementById("isPrime").innerHTML = number + " is not Prime Number.";
+                        return;
+                    }
+                }
+            }
+            
+
+            document.getElementById("isPrime").innerHTML = number + " is Prime Number.";
+            return;
+            
+        }
+    </script>
+</body>
+</html>

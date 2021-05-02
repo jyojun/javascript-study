@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type='text' id="getGrade" placeholder="input grade"/>
+    <p></p>
+    <input type='text' id='getScore' placeholder="input score"/>
+    <button type="button" onclick="getValueInput()">
+        click!
+    </button>
+    <p id="outputGrade"></p>
+    <p id="outputScore"></p>
+    <script>
+
+        
+        //let grade = prompt('학년을 입력하시오. ');
+        //let score = prompt('점수를 입력하시오. ');
+
+        const getValueInput = () => {
+            let grade = document.getElementById("getGrade").value;
+            document.getElementById("outputGrade").innerHTML = 'grade is ' + grade ;
+            let score = document.getElementById("getScore").value;
+            document.getElementById("outputScore").innerHTML = 'score is ' + score ;
+            
+            if(grade === 4) {
+                if(score >= 70 && score <= 100){
+                    document.write("합격!");
+                } else if(score >= 0 && score < 70) {
+                    document.write("불합격입니다..");
+                } else {
+                    document.write("잘못된 점수를 입력했습니다!!");
+                }
+            } else {
+                if(score >= 60 && score <= 100) {
+                    document.write("합격!!");
+                } else if(score >= 0 && score < 60) {
+                    document.write("불합격입니다..");
+                } else {
+                    document.write('잘못된 점수를 입력했습니다!!');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

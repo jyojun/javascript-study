@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>최대공약수 최소공배수 구하기</p>
+    <input type='text' id="firstNumber" placeholder="input first number"/>
+    <p></p>
+    <input type='text' id='secondNUmber' placeholder="input second number"/>
+    
+    <button type="button" onclick="getResult()">
+        Get GCE & LCM
+    </button>
+    <p id="GCD"></p>
+    <p id="LCM"></p>
+    <script>
+
+        function getGCE(a, b){ // 최대공약수 
+            
+            let r = 0;
+            while(b !== 0){
+                r = a % b;
+                a = b;
+                b = r;
+            }
+
+            return a;
+        }
+
+        function getLCM(a, b){ // 최소공배수
+
+            return a * b / getGCE(a,b);
+            
+        }
+
+        const getResult = () => {
+            let x = document.getElementById("firstNumber").value;
+            let y = document.getElementById("secondNUmber").value;
+            document.getElementById("GCD").innerHTML = "GCD between these two input numbers is " + getGCE(x,y);
+            document.getElementById("LCM").innerHTML = "LCM between these two input numbers is " + getLCM(x,y);
+        }
+
+    </script>
+</body>
+</html>
