@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>점 찍기</p>
+    <input type='text' id="number" placeholder="input number"/>
+    <p></p>
+    
+    <button type="button" onclick="getResult()">
+        Draw!
+    </button>
+    <p id="result"></p>
+    <script>
+        function drawStar(list){
+
+            let matrix = [];
+            
+            for(let i=0; i<3*list.length;i++){
+                if(i/3 == 1){
+                    matrix.push(list[i%3] + " " * 3 + list[i%3])
+                }
+                else{
+                    matrix.push(list[i%3] * 3)
+                }
+            }
+
+            return matrix
+
+        }
+        const getResult = () => {
+            let a = Number(document.getElementById("number").value);
+
+            let k = 0;
+            
+            let stars = ["***", "* *", "***"];
+
+            while(a!=3){
+                a = Number(a/3);
+                k += 1;
+            }
+
+            for(let i = 0; i<k; i++){
+                star = drawStar(star);
+            }
+
+            for(let i = 0; i<k; i++){
+                document.getElementById("result").innerHTML += star[i];
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
