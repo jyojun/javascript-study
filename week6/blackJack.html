@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const input = ['10 500', '93 181 245 214 315 36 185 138 216 295'];
+        const NM = input.shift().split(' ').map(num => parseInt(num));
+        console.log(NM);
+
+        const N = NM.shift();
+        const M = NM.shift();
+
+        console.log(N, M);
+
+        const cardArr = input.shift().split(' ').map(num => parseInt(num));
+        let result = 0;
+
+        console.log(cardArr);
+        
+        for(let i=0; i<N-2; i++){ // 첫번째 카드
+            for(let j=i+1; j<N-1; j++){ // 중간 카드
+                for(let k=j+1; k<N; k++){ // 마지막 카드
+                    // 3장의 카드의 합이 M보다 작거나 같고, M-카드의합이 M-현재까지의 답보다 작을 때 업데이트한다
+                    if((cardArr[i]+cardArr[j]+cardArr[k]) <= M && (M - (cardArr[i]+cardArr[j]+cardArr[k]) < M - result)){
+                        result = cardArr[i] + cardArr[j] + cardArr[k];
+                    }
+                }
+            }
+        }
+
+        console.log(result);
+    </script>
+</body>
+</html>

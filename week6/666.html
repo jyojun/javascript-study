@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = Number(prompt('Input a number'));
+        //let number = 100;
+        let movie = Number(666);
+        let count = 0;
+
+        while(true){
+            if(String(movie).includes('666')){
+                count = count + 1;
+            }
+            movie = movie + 1;
+            if(count === number){
+                break;
+            }
+        }
+
+        console.log(movie-1);
+    </script>
+</body>
+</html>
